@@ -6,7 +6,7 @@ environment_name: Dev1
 webspheremq:
   user: mqm
   group: mqm
-  archive_dir: /tmp/websphere-mq/
+  archive_dir: /tmp/websphere-mq
   unarchive_dir: "/tmp/{{ environment_name }}"
   rpm_fileglobs:
   - "MQSeriesRuntime-*.rpm"
