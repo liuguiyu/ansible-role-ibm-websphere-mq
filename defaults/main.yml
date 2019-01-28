@@ -6,8 +6,8 @@ environment_name: Dev1
 webspheremq:
   user: mqm
   group: mqm
-  archive_dir: /mnt/nfs/ansible/websphere-mq/
-  unarchive_dir: "/opt/temporary/{{ environment_name }}"
+  archive_dir: /tmp/websphere-mq/
+  unarchive_dir: "/tmp/{{ environment_name }}"
   rpm_fileglobs:
   - "MQSeriesRuntime-*.rpm"
   - "MQSeriesServer-*.rpm"
@@ -39,7 +39,7 @@ webspheremq_log_directory: /var/mqm/GWPCDEV/log
 webspheremq_data_directory: /var/mqm/GWPCDEV/data
 
 webspheremq_internal:
-  install_archive_path: "{{ webspheremq.archive_dir }}/MQ_7.5.0.2_TRIAL_LNX_ON_X86_64_ML.tar.gz"
+  install_archive_path: "{{ webspheremq.archive_dir }}/IBM_MQ_9.1.1_LINUX_X86-64.tar.gz"
   required_directories:
   - /opt/mqm
   - /var/mqm
