@@ -20,6 +20,8 @@ webspheremq:
   - "MQSeriesJava-*.rpm"
   - "MQSeriesGSKit-*.rpm"
   - "MQSeriesAMS-*.rpm"
+  rpm_rdqm_fileglobs:
+  - "MQSeriesRDQM-*.rpm"
   sysctl_settings:
   - name: kernel.sem
     value: 600 256000 300 2048
