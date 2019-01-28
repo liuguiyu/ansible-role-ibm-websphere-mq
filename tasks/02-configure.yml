@@ -54,6 +54,9 @@
   with_items: "{{ rpms.results }}"
   become: yes
 
+- name: install RQDM support
+  shell: chdir="{{ webspheremq.unarchive_dir }}/MQServer/Advanced/RDQM/" ./installRDQMsupport
+
 - name: Install RDQM rpm packages
   yum:
     name: "{{ webspheremq.unarchive_dir }}/MQServer/Advanced/RDQM/{{ item.stdout }}"
@@ -61,9 +64,6 @@
   with_items: "{{ rpms_rdqm.results }}"
   become: yes
   
-- name: install RQDM support
-  shell: chdir="{{ webspheremq.unarchive_dir }}/MQServer/Advanced/RDQM/" ./installRDQMsupport
-
 - name: setmqinst path
   shell: chdir=/opt/mqm/bin ./setmqinst -i -p /opt/mqm
 
