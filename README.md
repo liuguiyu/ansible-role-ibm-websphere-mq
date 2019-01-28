@@ -28,9 +28,9 @@ Role Variables
 | `environment_name` | `Dev1` | Self Explanatory |
 | `webspheremq.group` | `"mqm"` | App Group |
 | `webspheremq.user ` | `"mqm"` | App User |
-| `webspheremq.archive_dir` | `"/mnt/nfs/ansible/websphere-mq/"` | Directory where installer archive lives|
-| `webspheremq.unarchive_dir` | `"/opt/temporary/{{ environment_name }}"` | Directory where zip installer lives|
-| `webspheremq_internal.install_archive_path` | `"{{ webspheremq.archive_dir }}/MQ_7.5.0.2_TRIAL_LNX_ON_X86_64_ML.tar.gz"` | Full path to archive |
+| `webspheremq.archive_dir` | `"/tmp/websphere-mq/"` | Directory where installer archive lives|
+| `webspheremq.unarchive_dir` | `"/tmp/{{ environment_name }}"` | Directory where zip installer lives|
+| `webspheremq_internal.install_archive_path` | `"{{ webspheremq.archive_dir }}/IBM_MQ_9.1.1_LINUX_X86-64.tar.gz"` | Full path to archive |
 
 
 Dependencies
