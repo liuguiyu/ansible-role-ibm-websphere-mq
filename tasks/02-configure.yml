@@ -32,18 +32,18 @@
   become: yes
 
 - name: Accept License
-  shell: chdir="{{ webspheremq.unarchive_dir }}" ./mqlicense.sh -accept
+  shell: chdir="{{ webspheremq.unarchive_dir }}/MQServer" ./mqlicense.sh -accept
   become: yes
 
 - name: Find rpms
-  shell: chdir="{{ webspheremq.unarchive_dir }}" ls {{ item }}
+  shell: chdir="{{ webspheremq.unarchive_dir }}/MQServer" ls {{ item }}
   with_items: "{{ webspheremq.rpm_fileglobs }}"
   register: rpms
   become: yes
 
 - name: Install rpm packages
   yum:
-    name: "{{ webspheremq.unarchive_dir }}/{{ item.stdout }}"
+    name: "{{ webspheremq.unarchive_dir }}/MQServer/{{ item.stdout }}"
     state: present
   with_items: "{{ rpms.results }}"
   become: yes
@@ -56,7 +56,7 @@
     owner: "{{ webspheremq.user }}"
     group: "{{ webspheremq.group }}"
     src: .profile.j2
-    dest: "/home/mqm/.profile"
+    dest: "/export/home/mqm/.profile"
     mode: "0644"
 
 #- name: Queue Manager Creation
